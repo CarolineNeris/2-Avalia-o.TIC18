@@ -24,6 +24,22 @@ No caso dos dados numéricos, como salários ou idades, se isto ocorrer o seu m�
 
 Primeiro, corrijimos a hierarquia de classes e implementamos os métodos de forma apropriada. O código fornecido já possui as classes necessárias, mas os métodos não foram implementados corretamente. 
 
+# Parte 2:
+
+### Prática em Polimorfismo, Classes Abstratas e Interfaces
+Agora que seu programa está plenamente funcional,
+implementando várias classes a partir de uma classe abstrata, a direção da empresa DataFruta está prestes a te promover ao cargo de programador sênior.
+Para isto, basta você mostrar que o modelo de implementação que você criou é robusto o suficiente.
+Para isto você precisa mostrar que é fácil acrescentar
+funcionalidades polimórficas à estrutura que você criou.
+Primeira Atividade: Agora você deve apresentar um método virtual listarEmOrdem() na classe Lista, e sua implementação em cada uma das classes que você criou.
+Note que há um método estático (ainda não implementado) na classe Data que permite uma comparação entre duas datas.
+Claro que você pode procurar implementações de algoritmos de ordenação na Internet para te auxiliar.
+Segunda Atividade: Finalmente, você deve criar um método virtual que receba um parâmetro numérico N e mostra os N primeiros elementos de cada uma das listas (onde este método deverá ser implementado). 
+
+## Tratativa:
+
+
 
 ## Autores
 
