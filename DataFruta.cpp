@@ -251,6 +251,7 @@ class ListaIdades:public Lista  {
 			lista.push_back(idade);
 			//cout<<lista.at(i)<<endl;
 		}
+		Utils<int>::ordenarQuickSort(&lista,0,lista.size()-1);
 	}
 	
 	void mostraMediana() override{
@@ -288,9 +289,9 @@ int main () {
 	listaSalarios.entradaDeDados();
 	listaDeListas.push_back(&listaSalarios);
 	
-	//ListaIdades listaIdades;
-	//listaIdades.entradaDeDados();
-	//listaDeListas.push_back(&listaIdades);
+	ListaIdades listaIdades;
+	listaIdades.entradaDeDados();
+	listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
