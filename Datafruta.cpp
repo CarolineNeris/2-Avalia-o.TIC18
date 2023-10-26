@@ -23,7 +23,7 @@ public:
 
 class Lista {
 public:
-    virtual ~Lista() {}  // Destrutor virtual
+    virtual ~Lista() {} 
 
     virtual void entradaDeDados() = 0;
     virtual void mostraMediana() = 0;
@@ -215,11 +215,10 @@ int main() {
         l->mostraMenor();
         l->mostraMaior();
         l->listarEmOrdem();
-        l->mostrarPrimeiros(5);  // Exemplo para mostrar os primeiros 5 elementos.
+        l->mostrarPrimeiros(5);  
     }
 
-    // Limpando memória
-    for (Lista* l : listaDeListas) {
+     for (Lista* l : listaDeListas) {
         delete l;
     }
 }
