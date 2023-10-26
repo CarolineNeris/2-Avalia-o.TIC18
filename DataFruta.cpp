@@ -31,6 +31,30 @@ class Data {
 		ret.append(to_string(ano));
 		return ret;
 	}
+	static void ordenarDataQuickSort(vector<Data> *list, int esq, int dir){
+			int pivo=esq,i,j;
+			Data aux;
+			
+			for(i=esq+1;i<=dir;i++){
+				j=i;
+				if(list->at(j)<list->at(pivo)){
+				
+						aux=list->at(j);
+						while(j>pivo){
+							list->at(j)=list->at(j-1);
+							j--;
+						}
+						list->at(j)=aux;
+						pivo++;
+				}
+			}
+			if(pivo-1>=esq){
+				ordenarDataQuickSort(list,esq,pivo-1);
+			}
+			if(pivo+1 <=dir){
+				ordenarDataQuickSort(list,pivo+1,dir);
+			}
+		}
 };
 template <typename T>
 class Utils{
@@ -166,6 +190,7 @@ class ListaDatas: public Lista  {
 			lista.push_back(d1);
 			//cout<<lista.at(<<endl;
 		}
+		Data::ordenarDataQuickSort(&lista,0,lista.size()-1);
 	}
 	
 	void mostraMediana() override{
@@ -277,21 +302,21 @@ class ListaIdades:public Lista  {
 int main () {
 	vector<Lista*> listaDeListas;
 	
-	ListaNomes listaNomes;
-	listaNomes.entradaDeDados();
-	listaDeListas.push_back(&listaNomes);
+	//ListaNomes listaNomes;
+	//listaNomes.entradaDeDados();
+	//listaDeListas.push_back(&listaNomes);
 	
-	//ListaDatas listaDatas;
-	//listaDatas.entradaDeDados();
-	//listaDeListas.push_back(&listaDatas);
+	ListaDatas listaDatas;
+	listaDatas.entradaDeDados();
+	listaDeListas.push_back(&listaDatas);
 	
-	ListaSalarios listaSalarios;
-	listaSalarios.entradaDeDados();
-	listaDeListas.push_back(&listaSalarios);
+	//ListaSalarios listaSalarios;
+	//listaSalarios.entradaDeDados();
+	//listaDeListas.push_back(&listaSalarios);
 	
-	ListaIdades listaIdades;
-	listaIdades.entradaDeDados();
-	listaDeListas.push_back(&listaIdades);
+	//ListaIdades listaIdades;
+	//listaIdades.entradaDeDados();
+	//listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
