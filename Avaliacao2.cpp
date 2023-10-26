@@ -71,11 +71,11 @@ public:
 
 // Implementar as classes abaixo.
 
-class ListaDatas  {
+class ListaDatas : public Lista  {
 	vector<Data> lista;
 	
 	public:
-	void entradaDeDados() {
+	void entradaDeDados() override {
 		int n;
         cout << "Quantas datas deseja adicionar? ";
         cin >> n;
@@ -102,19 +102,23 @@ class ListaDatas  {
 	}
 	
 
-class ListaSalarios  {
+class ListaSalarios : public Lista  {
 	vector<float> lista;
 	
-	public:
-	
-	/*
-	O m�todo abaixo pergunta ao usu�rios quantos
-	elementos v�o existir na lista e depois
-	solicita a digita��o de cada um deles
-	*/	
-	void entradaDeDados() {
+	public:		
+	void entradaDeDados() override{
 		
-	}
+		int n;
+        cout << "Quantos salários deseja adicionar? ";
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+            float salario;
+            cout << "Digite o salário: ";
+            cin >> salario;
+            lista.push_back(salario);
+        }
+    }
+	
 			
 	void mostraMediana() {
 		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
