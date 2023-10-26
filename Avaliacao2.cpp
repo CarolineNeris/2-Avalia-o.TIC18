@@ -262,6 +262,13 @@ void mostraMediana() {
             cout << "Maior idade: " << lista.back() << endl;
         }
     }
+     void listarEmOrdem(){
+        sort(lista.begin(), lista.end());
+        for (int idade : lista) {
+            cout << idade << endl;
+        }
+    }
+
 };
 
 int main() {
@@ -283,10 +290,10 @@ int main() {
 	listaSalarios.entradaDeDados();
 	listaDeListas.push_back(&listaSalarios);
 	
-	/*ListaIdades listaIdades;
+	ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
-	*/
+	
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
