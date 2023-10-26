@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <typeinfo>
 
 using namespace std;
 
@@ -162,6 +163,11 @@ class Utils{
 				ordenarQuickSort(list,pivo+1,dir);
 			}
 		}
+		static void listar(vector<T> *list){
+			for(int i=0;i<list->size();i++){
+			cout<<i<<": "<<list->at(i)<<endl;
+			}
+		}
 };
 
 class Lista {
@@ -193,6 +199,7 @@ class ListaNomes: public Lista {
 			lista.push_back(nome);
 		}
 		Utils<string>::ordenarQuickSort(&lista,0,lista.size()-1);
+		Utils<string>::listar(&lista);
 	}
 		
 	void mostraMediana() override{
@@ -354,28 +361,30 @@ class ListaIdades:public Lista  {
 int main () {
 	vector<Lista*> listaDeListas;
 	
-	//ListaNomes listaNomes;
-	//listaNomes.entradaDeDados();
-	//listaDeListas.push_back(&listaNomes);
+	ListaNomes listaNomes;
+	listaNomes.entradaDeDados();
+	listaDeListas.push_back(&listaNomes);
 	
 	ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
 	listaDeListas.push_back(&listaDatas);
 	
-	//ListaSalarios listaSalarios;
-	//listaSalarios.entradaDeDados();
-	//listaDeListas.push_back(&listaSalarios);
+	ListaSalarios listaSalarios;
+	listaSalarios.entradaDeDados();
+	listaDeListas.push_back(&listaSalarios);
 	
-	//ListaIdades listaIdades;
-	//listaIdades.entradaDeDados();
-	//listaDeListas.push_back(&listaIdades);
+	ListaIdades listaIdades;
+	listaIdades.entradaDeDados();
+	listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
+		cout<<typeid(*l).name()<<endl;
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
 	}
 	
+	return 0;
 }
     
 
