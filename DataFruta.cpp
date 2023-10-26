@@ -51,7 +51,7 @@ class ListaNomes: public Lista {
 	elementos v�o existir na lista e depois
 	solicita a digita��o de cada um deles
 	*/	
-	void entradaDeDados() {
+	void entradaDeDados() override{
 		int n;
 		string nome;
 		cout<<"Nomes: Quantas entradas :";
@@ -63,18 +63,18 @@ class ListaNomes: public Lista {
 		}
 	}
 		
-	void mostraMediana() {
+	void mostraMediana() override{
 		//cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
 		int metade=static_cast<int>((lista.size()/2)+lista.size()%2);
 		//cout<<"metade:"<<metade<<endl;
 		cout<<"Mediana: "<<lista.at(metade-1)<<endl;
 	}
 	
-	void mostraMenor() {
+	void mostraMenor() override{
 		//cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
 		cout<<"Menor: "<<lista.front()<<endl;
 	}
-	void mostraMaior() {
+	void mostraMaior() override{
 		//cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
 		cout<<"Maior: "<<lista.back()<<endl;
 	}
