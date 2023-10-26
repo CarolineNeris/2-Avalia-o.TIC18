@@ -125,7 +125,7 @@ class ListaDatas: public Lista  {
 	}
 };
 
-class ListaSalarios  {
+class ListaSalarios: public Lista  {
 	vector<float> lista;
 	
 	public:
@@ -136,7 +136,16 @@ class ListaSalarios  {
 	solicita a digita��o de cada um deles
 	*/	
 	void entradaDeDados() {
-		
+		int n;
+		float salario;
+		cout<<"Salarios: Quantas entradas:";
+		cin>>n;
+		for(int i=0;i<n;i++){
+			cout<<"Digite salario: ";
+			cin>>salario;
+			lista.push_back(salario);
+			//cout<<lista.at(i)<<endl;
+		}
 	}
 			
 	void mostraMediana() {
@@ -185,13 +194,13 @@ int main () {
 	//listaNomes.entradaDeDados();
 	//listaDeListas.push_back(&listaNomes);
 	
-	ListaDatas listaDatas;
-	listaDatas.entradaDeDados();
-	listaDeListas.push_back(&listaDatas);
+	//ListaDatas listaDatas;
+	//listaDatas.entradaDeDados();
+	//listaDeListas.push_back(&listaDatas);
 	
-	//ListaSalarios listaSalarios;
-	//listaSalarios.entradaDeDados();
-	//listaDeListas.push_back(&listaSalarios);
+	ListaSalarios listaSalarios;
+	listaSalarios.entradaDeDados();
+	listaDeListas.push_back(&listaSalarios);
 	
 	//ListaIdades listaIdades;
 	//listaIdades.entradaDeDados();
