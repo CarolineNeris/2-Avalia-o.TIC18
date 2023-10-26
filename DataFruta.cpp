@@ -80,7 +80,7 @@ class ListaNomes: public Lista {
 	}
 };
 
-class ListaDatas  {
+class ListaDatas: public Lista  {
 	vector<Data> lista;
 	
 	public:
@@ -91,7 +91,21 @@ class ListaDatas  {
 	solicita a digita��o de cada um deles
 	*/	
 	void entradaDeDados() {
+		int n;
+		int dia,mes,ano;
 		
+		cout<<"Data: Quantas entradas:";
+		cin>>n;
+		//getchar();
+		for(int i=0;i<n;i++){
+			cout<<"Digite dia mes ano: ";
+			cin>>dia>>mes>>ano;
+			Data d1(dia,mes,ano);
+			//str_d1=d1.toString();
+			//cout<<"str_d1: "<<str_d1<<endl;
+			lista.push_back(d1);
+			//cout<<lista.at(<<endl;
+		}
 	}
 	
 	void mostraMediana() {
@@ -162,13 +176,13 @@ class ListaIdades  {
 int main () {
 	vector<Lista*> listaDeListas;
 	
-	ListaNomes listaNomes;
-	listaNomes.entradaDeDados();
-	listaDeListas.push_back(&listaNomes);
+	//ListaNomes listaNomes;
+	//listaNomes.entradaDeDados();
+	//listaDeListas.push_back(&listaNomes);
 	
-	//ListaDatas listaDatas;
-	//listaDatas.entradaDeDados();
-	//listaDeListas.push_back(&listaDatas);
+	ListaDatas listaDatas;
+	listaDatas.entradaDeDados();
+	listaDeListas.push_back(&listaDatas);
 	
 	//ListaSalarios listaSalarios;
 	//listaSalarios.entradaDeDados();
