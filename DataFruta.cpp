@@ -39,6 +39,8 @@ class Data {
 		//cout<<"dia<_data.dia"<<endl;
 		return dia < _data.dia;
 	}
+
+	Data(){}//construtor default
 	
 	Data (int _dia, int _mes, int _ano) {
 		dia = _dia;
