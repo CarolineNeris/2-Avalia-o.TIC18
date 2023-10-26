@@ -109,14 +109,19 @@ class ListaDatas: public Lista  {
 	}
 	
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
+		//cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
+		int metade=static_cast<int>((lista.size()/2)+lista.size()%2);
+		//cout<<"metade:"<<metade<<endl;
+		cout<<"Mediana: "<<lista.at(metade-1).toString()<<endl;
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
+		//cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
+		cout<<"Menor: "<<lista.front().toString()<<endl;
 	}
 	void mostraMaior() {
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
+		//cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
+		cout<<"Maior: "<<lista.back().toString()<<endl;
 	}
 };
 
