@@ -25,7 +25,7 @@ public:
         ano = _ano;
     }
 
-    string toString() {
+    string toString() const {
         string ret = "";
         ret.append(to_string(dia));
         ret.append("/");
@@ -153,6 +153,15 @@ class ListaDatas : public Lista  {
             cout << "Maior data: " << lista.back().toString() << endl;
         }
     }
+
+    void listarEmOrdem() override {
+        sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
+            return Data::compara(d1, d2) < 0;
+        });
+        for (const Data& data : lista) {
+            cout << data.toString() << endl;
+        }
+    }
     
 };
 
@@ -273,18 +282,14 @@ void mostraMediana() {
 
 int main() {
     vector<Lista*> listaDeListas;
-   //teste
-   /* Data dataum(12, 9, 2013);
-    Data datadois(15, 8, 2023);
-    cout << Data::compara(dataum, datadois) << endl;*/
-
+   
     ListaNomes listaNomes;
     listaNomes.entradaDeDados();
     listaDeListas.push_back(&listaNomes);	
 
-    /*ListaDatas listaDatas;
+    ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
-	listaDeListas.push_back(&listaDatas);*/
+	listaDeListas.push_back(&listaDatas);
 	
 	ListaSalarios listaSalarios;
 	listaSalarios.entradaDeDados();
