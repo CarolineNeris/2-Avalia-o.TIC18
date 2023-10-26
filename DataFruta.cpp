@@ -13,7 +13,7 @@ class Data {
 	Retornar� 0 se d1 = d2
 	Retornar� +1 se d1 � posterior a d2
 	*/	
-	static int compara(Data d1, Data d2) { 
+	/*static int compara(Data d1, Data d2) { 
 		tm data1 ={};
 		data1.tm_year=d1.ano-1900;
 		data1.tm_mon=d1.mes-1;
@@ -35,13 +35,13 @@ class Data {
 				}
 
 		}
-	}
-	/*static int compara(Data d1, Data d2) { 
+	}*/
+	static int compara(Data d1, Data d2) { 
 		if(d1<d2){return -1;}
 		else if(!(d1<d2)){return 1;}
 		else{return 0;}
 	}
-	*/
+	
 	bool operator<(const Data& _data) const {
 		if (ano < _data.ano) {
             //cout<<"ano<_data.ano"<<endl;
@@ -73,8 +73,10 @@ class Data {
 	}
 	string toString() {
 		string ret = "";
+		if(dia<10)ret.append("0");
 		ret.append(to_string(dia));
 		ret.append("/");
+		if(mes<10)ret.append("0");
 		ret.append(to_string(mes));
 		ret.append("/");
 		ret.append(to_string(ano));
