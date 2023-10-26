@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -18,7 +19,11 @@ public:
         }
     };
 
-    Data(int _dia, int _mes, int _ano) : dia(_dia), mes(_mes), ano(_ano) {}
+    Data(int _dia, int _mes, int _ano) {
+        dia = _dia;
+        mes= _mes;
+        ano = _ano;
+    }
 
     string toString() {
         string ret = "";
@@ -81,26 +86,48 @@ class ListaDatas : public Lista  {
         cin >> n;
         for (int i = 0; i < n; i++) {
             int dia, mes, ano;
-            cout << "Digite o dia, mês e ano (formato DD MM AAAA): ";
+            cout << "Digite o dia, mes e ano (formato DD MM AAAA): ";
             cin >> dia >> mes >> ano;
             Data data(dia, mes, ano);
             lista.push_back(data);
         }
     }
 		
-	};
 	
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
-	}
+        if (lista.empty()) {
+            cout << "A lista de datas está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
+                return Data::compara(d1, d2) < 0;
+            });
+            int meio = lista.size() / 2;
+            cout << "Mediana: " << lista[meio].toString() << endl;
+        }
+    }
 	
-	void mostraMenor() {
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
-	}
-	void mostraMaior() {
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
-	}
-	
+	   void mostraMenor() {
+        if (lista.empty()) {
+            cout << "A lista de datas está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
+                return Data::compara(d1, d2) < 0;
+            });
+            cout << "Menor data: " << lista.front().toString() << endl;
+        }
+    }
+
+    void mostraMaior() {
+        if (lista.empty()) {
+            cout << "A lista de datas está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
+                return Data::compara(d1, d2) < 0;
+            });
+            cout << "Maior data: " << lista.back().toString() << endl;
+        }
+    }
+};
 
 class ListaSalarios : public Lista  {
 	vector<float> lista;
@@ -176,9 +203,9 @@ int main() {
     // Adicionar as outras classes derivadas e seus métodos.
 	
 
-    /*ListaDatas listaDatas;
+    ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
-	listaDeListas.push_back(&listaDatas);*/
+	listaDeListas.push_back(&listaDatas);
 	
 	ListaSalarios listaSalarios;
 	listaSalarios.entradaDeDados();
