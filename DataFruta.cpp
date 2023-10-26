@@ -64,14 +64,19 @@ class ListaNomes: public Lista {
 	}
 		
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
+		//cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
+		int metade=static_cast<int>((lista.size()/2)+lista.size()%2);
+		//cout<<"metade:"<<metade<<endl;
+		cout<<"Mediana: "<<lista.at(metade-1)<<endl;
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+		//cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+		cout<<"Menor: "<<lista.front()<<endl;
 	}
 	void mostraMaior() {
-		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+		//cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+		cout<<"Maior: "<<lista.back()<<endl;
 	}
 };
 
