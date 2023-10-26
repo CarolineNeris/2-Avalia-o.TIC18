@@ -90,7 +90,7 @@ class ListaDatas: public Lista  {
 	elementos v�o existir na lista e depois
 	solicita a digita��o de cada um deles
 	*/	
-	void entradaDeDados() {
+	void entradaDeDados() override{
 		int n;
 		int dia,mes,ano;
 		
@@ -108,18 +108,18 @@ class ListaDatas: public Lista  {
 		}
 	}
 	
-	void mostraMediana() {
+	void mostraMediana() override{
 		//cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
 		int metade=static_cast<int>((lista.size()/2)+lista.size()%2);
 		//cout<<"metade:"<<metade<<endl;
 		cout<<"Mediana: "<<lista.at(metade-1).toString()<<endl;
 	}
 	
-	void mostraMenor() {
+	void mostraMenor() override{
 		//cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
 		cout<<"Menor: "<<lista.front().toString()<<endl;
 	}
-	void mostraMaior() {
+	void mostraMaior() override{
 		//cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
 		cout<<"Maior: "<<lista.back().toString()<<endl;
 	}
