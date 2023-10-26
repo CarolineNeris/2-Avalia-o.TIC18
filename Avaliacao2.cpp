@@ -42,6 +42,7 @@ public:
     virtual void mostraMediana() = 0;
     virtual void mostraMenor() = 0;
     virtual void mostraMaior() = 0;
+    virtual void listarEmOrdem() = 0;
 };
 
 class ListaNomes : public Lista {
@@ -92,9 +93,14 @@ public:
             cout << "O maior nome em ordem alfabetica eh: " << lista.back() << endl;
         }
     }
+     void listarEmOrdem() {
+        sort(lista.begin(), lista.end());
+        for (const string& nome : lista) {
+            cout << nome << endl;
+        }
+    }
 };
 
-// Implementar as classes abaixo.
 
 class ListaDatas : public Lista  {
 	vector<Data> lista;
@@ -116,7 +122,7 @@ class ListaDatas : public Lista  {
 	
 	void mostraMediana() {
         if (lista.empty()) {
-            cout << "A lista de datas está vazia." << endl;
+            cout << "A lista de datas esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
                 return Data::compara(d1, d2) < 0;
@@ -128,7 +134,7 @@ class ListaDatas : public Lista  {
 	
 	   void mostraMenor() {
         if (lista.empty()) {
-            cout << "A lista de datas está vazia." << endl;
+            cout << "A lista de datas esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
                 return Data::compara(d1, d2) < 0;
@@ -139,7 +145,7 @@ class ListaDatas : public Lista  {
 
     void mostraMaior() {
         if (lista.empty()) {
-            cout << "A lista de datas está vazia." << endl;
+            cout << "A lista de datas esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end(), [](const Data& d1, const Data& d2) {
                 return Data::compara(d1, d2) < 0;
@@ -169,7 +175,7 @@ class ListaSalarios : public Lista  {
 			
 	void mostraMediana() {
         if (lista.empty()) {
-            cout << "A lista de salários está vazia." << endl;
+            cout << "A lista de salarios esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end());
             int meio = lista.size() / 2;
@@ -220,7 +226,7 @@ class ListaIdades : public Lista  {
 	
 void mostraMediana() {
         if (lista.empty()) {
-            cout << "A lista de idades está vazia." << endl;
+            cout << "A lista de idades esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end());
             int meio = lista.size() / 2;
@@ -235,7 +241,7 @@ void mostraMediana() {
 	
 	void mostraMenor() {
         if (lista.empty()) {
-            cout << "A lista de idades está vazia." << endl;
+            cout << "A lista de idades esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end());
             cout << "Menor idade: " << lista.front() << endl;
@@ -243,7 +249,7 @@ void mostraMediana() {
     }
 	void mostraMaior() {
         if (lista.empty()) {
-            cout << "A lista de idades está vazia." << endl;
+            cout << "A lista de idades esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end());
             cout << "Maior idade: " << lista.back() << endl;
@@ -262,7 +268,7 @@ int main() {
     listaNomes.entradaDeDados();
     listaDeListas.push_back(&listaNomes);	
 
-    ListaDatas listaDatas;
+   /* ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
 	listaDeListas.push_back(&listaDatas);
 	
@@ -273,11 +279,13 @@ int main() {
 	ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
-	
+	*/
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
+        cout << "Listagem em ordem:" << endl;
+        l->listarEmOrdem();
 	}
 
     return 0;
