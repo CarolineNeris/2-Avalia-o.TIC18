@@ -153,6 +153,7 @@ class ListaDatas : public Lista  {
             cout << "Maior data: " << lista.back().toString() << endl;
         }
     }
+    
 };
 
 class ListaSalarios : public Lista  {
@@ -202,6 +203,12 @@ class ListaSalarios : public Lista  {
         } else {
             sort(lista.begin(), lista.end());
             cout << "Maior salario: " << lista.back() << endl;
+        }
+    }
+     void listarEmOrdem(){
+        sort(lista.begin(), lista.end());
+        for (float salario : lista) {
+            cout << salario << endl;
         }
     }
 };
@@ -268,15 +275,15 @@ int main() {
     listaNomes.entradaDeDados();
     listaDeListas.push_back(&listaNomes);	
 
-   /* ListaDatas listaDatas;
+    /*ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
-	listaDeListas.push_back(&listaDatas);
+	listaDeListas.push_back(&listaDatas);*/
 	
 	ListaSalarios listaSalarios;
 	listaSalarios.entradaDeDados();
 	listaDeListas.push_back(&listaSalarios);
 	
-	ListaIdades listaIdades;
+	/*ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
 	*/
