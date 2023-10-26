@@ -75,15 +75,20 @@ class ListaDatas  {
 	vector<Data> lista;
 	
 	public:
-		
-	/*
-	O m�todo abaixo pergunta ao usu�rios quantos
-	elementos v�o existir na lista e depois
-	solicita a digita��o de cada um deles
-	*/	
 	void entradaDeDados() {
+		int n;
+        cout << "Quantas datas deseja adicionar? ";
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+            int dia, mes, ano;
+            cout << "Digite o dia, mês e ano (formato DD MM AAAA): ";
+            cin >> dia >> mes >> ano;
+            Data data(dia, mes, ano);
+            lista.push_back(data);
+        }
+    }
 		
-	}
+	};
 	
 	void mostraMediana() {
 		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
@@ -95,7 +100,7 @@ class ListaDatas  {
 	void mostraMaior() {
 		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
 	}
-};
+	
 
 class ListaSalarios  {
 	vector<float> lista;
