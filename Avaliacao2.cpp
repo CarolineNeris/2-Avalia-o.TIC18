@@ -164,18 +164,18 @@ class ListaSalarios : public Lista  {
 	
 	void mostraMenor() {
         if (lista.empty()) {
-            cout << "A lista de salários está vazia." << endl;
+            cout << "A lista de salários esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end());
-            cout << "Menor salário: " << lista.front() << endl;
+            cout << "Menor salario: " << lista.front() << endl;
         }
     }
 	void mostraMaior() {
         if (lista.empty()) {
-            cout << "A lista de salários está vazia." << endl;
+            cout << "A lista de salarios esta vazia." << endl;
         } else {
             sort(lista.begin(), lista.end());
-            cout << "Maior salário: " << lista.back() << endl;
+            cout << "Maior salario: " << lista.back() << endl;
         }
     }
 };
@@ -198,16 +198,37 @@ class ListaIdades : public Lista  {
     }
 	
 	
-	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
-	}
+void mostraMediana() {
+        if (lista.empty()) {
+            cout << "A lista de idades está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            int meio = lista.size() / 2;
+            if (lista.size() % 2 == 0) {
+                int mediana = (lista[meio - 1] + lista[meio]) / 2;
+                cout << "Mediana: " << mediana << endl;
+            } else {
+                cout << "Mediana: " << lista[meio] << endl;
+            }
+        }
+    }
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar a menor das idades" << endl;
-	}
+        if (lista.empty()) {
+            cout << "A lista de idades está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            cout << "Menor idade: " << lista.front() << endl;
+        }
+    }
 	void mostraMaior() {
-		cout << "aqui vai mostrar a maior das idades" << endl;
-	}
+        if (lista.empty()) {
+            cout << "A lista de idades está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            cout << "Maior idade: " << lista.back() << endl;
+        }
+    }
 };
 
 int main() {
@@ -219,10 +240,7 @@ int main() {
 
     ListaNomes listaNomes;
     listaNomes.entradaDeDados();
-    listaDeListas.push_back(&listaNomes);
-
-    // Adicionar as outras classes derivadas e seus métodos.
-	
+    listaDeListas.push_back(&listaNomes);	
 
     ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
