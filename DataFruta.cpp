@@ -206,6 +206,7 @@ class ListaSalarios: public Lista  {
 			lista.push_back(salario);
 			//cout<<lista.at(i)<<endl;
 		}
+		Utils<float>::ordenarQuickSort(&lista,0,lista.size()-1);
 	}
 			
 	void mostraMediana() override{
@@ -283,9 +284,9 @@ int main () {
 	//listaDatas.entradaDeDados();
 	//listaDeListas.push_back(&listaDatas);
 	
-	//ListaSalarios listaSalarios;
-	//listaSalarios.entradaDeDados();
-	//listaDeListas.push_back(&listaSalarios);
+	ListaSalarios listaSalarios;
+	listaSalarios.entradaDeDados();
+	listaDeListas.push_back(&listaSalarios);
 	
 	//ListaIdades listaIdades;
 	//listaIdades.entradaDeDados();
