@@ -53,7 +53,7 @@ public:
         string nm;
         cout << "Deseja inserir quantos nomes? " << endl;
         cin >> n;
-        cin.ignore(); // Limpa o caractere de nova linha no buffer.
+        cin.ignore(); 
         for (int i = 0; i < n; i++) {
             cout << "Digite o nome:" << endl;
             getline(cin, nm);
@@ -62,15 +62,35 @@ public:
     }
 
     void mostraMediana() {
-        cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
+        if (lista.empty()) {
+            cout << "A lista de nomes esta vazia, nao eh possivel calcular a mediana." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            int size = lista.size();
+            if (size % 2 == 0) {
+                cout << "A mediana eh indefinida. O primeiro nome em ordem alfabetica eh: " << lista[size / 2 - 1] << endl;
+            } else {
+                cout << "A mediana da lista de nomes eh: " << lista[size / 2] << endl;
+            }
+        }
     }
 
     void mostraMenor() {
-        cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+        if (lista.empty()) {
+            cout << "A lista de nomes esta vazia, não eh possivel encontrar o menor nome." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            cout << "O menor nome em ordem alfabetica eh: " << lista.front() << endl;
+        }
     }
 
     void mostraMaior() {
-        cout << "Aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+        if (lista.empty()) {
+            cout << "A lista de nomes esta vazia, nao eh possivel encontrar o maior nome." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            cout << "O maior nome em ordem alfabetica eh: " << lista.back() << endl;
+        }
     }
 };
 
