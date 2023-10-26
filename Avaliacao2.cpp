@@ -133,19 +133,22 @@ class ListaSalarios : public Lista  {
 };
 
 
-class ListaIdades  {
+class ListaIdades : public Lista  {
 	vector<int> lista;
 	
 	public:
-		
-		/*
-	O m�todo abaixo pergunta ao usu�rios quantos
-	elementos v�o existir na lista e depois
-	solicita a digita��o de cada um deles
-	*/	
-	void entradaDeDados() {
-		
-	}
+		void entradaDeDados() override {
+        int n;
+        cout << "Quantas idades deseja adicionar? ";
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+            int idade;
+            cout << "Digite a idade: ";
+            cin >> idade;
+            lista.push_back(idade);
+        }
+    }
+	
 	
 	void mostraMediana() {
 		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
