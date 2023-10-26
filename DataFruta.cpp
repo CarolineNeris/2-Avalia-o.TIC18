@@ -108,6 +108,12 @@ class Data {
 				ordenarDataQuickSort(list,pivo+1,dir);
 			}
 		}
+		static void listarData(vector<Data> *list){
+			for(int i=0;i<list->size();i++){
+			cout<<i<<": ";
+			cout<<list->at(i).toString()<<endl;
+			}
+		}
 };
 template <typename T>
 class Utils{
@@ -165,7 +171,7 @@ class Utils{
 		}
 		static void listar(vector<T> *list){
 			for(int i=0;i<list->size();i++){
-			cout<<i<<": "<<list->at(i)<<endl;
+				cout<<i<<": "<<list->at(i)<<endl;
 			}
 		}
 };
@@ -250,6 +256,7 @@ class ListaDatas: public Lista  {
 			//cout<<lista.at(<<endl;
 		}
 		Data::ordenarDataQuickSort(&lista,0,lista.size()-1);
+		Data::listarData(&lista);
 	}
 	
 	void mostraMediana() override{
@@ -291,6 +298,7 @@ class ListaSalarios: public Lista  {
 			//cout<<lista.at(i)<<endl;
 		}
 		Utils<float>::ordenarQuickSort(&lista,0,lista.size()-1);
+		Utils<float>::listar(&lista);
 	}
 			
 	void mostraMediana() override{
@@ -336,6 +344,7 @@ class ListaIdades:public Lista  {
 			//cout<<lista.at(i)<<endl;
 		}
 		Utils<int>::ordenarQuickSort(&lista,0,lista.size()-1);
+		Utils<int>::listar(&lista);
 	}
 	
 	void mostraMediana() override{
@@ -378,12 +387,13 @@ int main () {
 	listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
-		cout<<typeid(*l).name()<<endl;
+		cout<<endl;
+		cout<<"Tipo do dado: "<<typeid(*l).name()<<endl;
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
 	}
-	
+	cout<<endl<<endl;
 	return 0;
 }
     
