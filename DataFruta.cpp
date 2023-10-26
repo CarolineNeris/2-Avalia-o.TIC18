@@ -169,7 +169,7 @@ class ListaSalarios: public Lista  {
 };
 
 
-class ListaIdades  {
+class ListaIdades:public Lista  {
 	vector<int> lista;
 	
 	public:
@@ -180,7 +180,16 @@ class ListaIdades  {
 	solicita a digita��o de cada um deles
 	*/	
 	void entradaDeDados() {
-		
+		int n;
+		int idade;
+		cout<<"Idades: Quantas entradas:";
+		cin>>n;
+		for(int i=0;i<n;i++){
+			cout<<"Digite idade: ";
+			cin>>idade;
+			lista.push_back(idade);
+			//cout<<lista.at(i)<<endl;
+		}
 	}
 	
 	void mostraMediana() {
@@ -206,13 +215,13 @@ int main () {
 	//listaDatas.entradaDeDados();
 	//listaDeListas.push_back(&listaDatas);
 	
-	ListaSalarios listaSalarios;
-	listaSalarios.entradaDeDados();
-	listaDeListas.push_back(&listaSalarios);
+	//ListaSalarios listaSalarios;
+	//listaSalarios.entradaDeDados();
+	//listaDeListas.push_back(&listaSalarios);
 	
-	//ListaIdades listaIdades;
-	//listaIdades.entradaDeDados();
-	//listaDeListas.push_back(&listaIdades);
+	ListaIdades listaIdades;
+	listaIdades.entradaDeDados();
+	listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
