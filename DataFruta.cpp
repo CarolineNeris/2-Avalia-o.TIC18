@@ -192,15 +192,23 @@ class ListaIdades:public Lista  {
 		}
 	}
 	
-	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
+	void mostraMediana() override{
+		//cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
+		int metade=static_cast<int>((lista.size()/2));//+lista.size()%2);
+		if(lista.size()%2){
+			cout<<"Mediana: "<<(lista.at(metade))<<endl;
+		}else{
+			cout<<"Mediana: "<<((lista.at(metade-1)+lista.at(metade))/2)<<endl;
+		}
 	}
 	
-	void mostraMenor() {
-		cout << "Aqui vai mostrar a menor das idades" << endl;
+	void mostraMenor() override{
+		//cout << "Aqui vai mostrar a menor das idades" << endl;
+		cout<<"Menor:"<<lista.front()<<endl;
 	}
-	void mostraMaior() {
-		cout << "aqui vai mostrar a maior das idades" << endl;
+	void mostraMaior() override{
+		//cout << "aqui vai mostrar a maior das idades" << endl;
+		cout<<"Maior: "<<lista.back()<<endl;
 	}
 };
  
