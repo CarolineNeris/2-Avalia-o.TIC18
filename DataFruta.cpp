@@ -14,7 +14,30 @@ class Data {
 	Retornar� +1 se d1 � posterior a d2
 	*/	
 	static int compara(Data d1, Data d2) { 
-		return 0;
+		if(d1<d2){return -1;}
+		else if(!(d1<d2)){return 1;}
+		else{return 0;}
+	}
+	bool operator<(const Data& _data) const {
+		if (ano < _data.ano) {
+            //cout<<"ano<_data.ano"<<endl;
+			return true;
+		}
+		else if (ano > _data.ano) {
+            //cout<<"ano>_data.ano"<<endl;
+			return false;
+		}
+
+		if (mes < _data.mes) {
+            //cout<<"mes<_data.mes"<<endl;
+			return true;
+		}
+		else if (mes > _data.mes) {
+            //cout<<"mes>_data.mes"<<endl;
+			return false;
+		}
+		//cout<<"dia<_data.dia"<<endl;
+		return dia < _data.dia;
 	}
 	
 	Data (int _dia, int _mes, int _ano) {
@@ -37,7 +60,8 @@ class Data {
 			
 			for(i=esq+1;i<=dir;i++){
 				j=i;
-				if(list->at(j)<list->at(pivo)){
+				if(compara(list->at(j),list->at(pivo))<0){				
+				//if(list->at(j)<list->at(pivo)){
 				
 						aux=list->at(j);
 						while(j>pivo){
