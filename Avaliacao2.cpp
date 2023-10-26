@@ -148,15 +148,36 @@ class ListaSalarios : public Lista  {
 	
 			
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
-	}
+        if (lista.empty()) {
+            cout << "A lista de salários está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            int meio = lista.size() / 2;
+            if (lista.size() % 2 == 0) {
+                float mediana = (lista[meio - 1] + lista[meio]) / 2.0;
+                cout << "Mediana: " << mediana << endl;
+            } else {
+                cout << "Mediana: " << lista[meio] << endl;
+            }
+        }
+    }
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar o menor dos salarios" << endl;
-	}
+        if (lista.empty()) {
+            cout << "A lista de salários está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            cout << "Menor salário: " << lista.front() << endl;
+        }
+    }
 	void mostraMaior() {
-		cout << "aqui vai mostrar o maior dos salarios" << endl;
-	}
+        if (lista.empty()) {
+            cout << "A lista de salários está vazia." << endl;
+        } else {
+            sort(lista.begin(), lista.end());
+            cout << "Maior salário: " << lista.back() << endl;
+        }
+    }
 };
 
 
