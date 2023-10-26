@@ -32,6 +32,38 @@ class Data {
 		return ret;
 	}
 };
+template <typename T>
+class Utils{
+	public:
+		static vector<int>* stringDate(){
+
+			string date,d,m,a;
+    		vector<int>* id = new vector<int>();
+			
+			///d={};
+			//m={};
+			//a={};
+			cout<<"Digite uma data formato dd/mm/aaaa: ";
+			getline(cin>>ws,date);			
+			for(int i=0;i<date.length();i++){
+				if(date.at(i)!='/'){
+					d+=date.at(i);
+				}else{date.erase(0,i+1);break;}
+			}
+			for(int i=0;i<date.length();i++){
+				if(date.at(i)!='/'){
+					m+=date.at(i);
+				}else{date.erase(0,i+1);break;}
+			}
+			for(int i=0;i<date.length();i++){
+					a+=date.at(i);
+			}
+			id->push_back(stoi(d));
+			id->push_back(stoi(m));
+			id->push_back(stoi(a));
+			return id;
+		}
+};
 
 class Lista {
 	public:
@@ -98,8 +130,12 @@ class ListaDatas: public Lista  {
 		cin>>n;
 		//getchar();
 		for(int i=0;i<n;i++){
-			cout<<"Digite dia mes ano: ";
-			cin>>dia>>mes>>ano;
+			//cout<<"Digite dia mes ano: ";
+			//cin>>dia>>mes>>ano;
+			vector<int>* id=Utils<vector<int>*>::stringDate();
+			dia=id->at(0);
+			mes=id->at(1);
+			ano=id->at(2);
 			Data d1(dia,mes,ano);
 			//str_d1=d1.toString();
 			//cout<<"str_d1: "<<str_d1<<endl;
@@ -219,17 +255,17 @@ int main () {
 	//listaNomes.entradaDeDados();
 	//listaDeListas.push_back(&listaNomes);
 	
-	//ListaDatas listaDatas;
-	//listaDatas.entradaDeDados();
-	//listaDeListas.push_back(&listaDatas);
+	ListaDatas listaDatas;
+	listaDatas.entradaDeDados();
+	listaDeListas.push_back(&listaDatas);
 	
 	//ListaSalarios listaSalarios;
 	//listaSalarios.entradaDeDados();
 	//listaDeListas.push_back(&listaSalarios);
 	
-	ListaIdades listaIdades;
-	listaIdades.entradaDeDados();
-	listaDeListas.push_back(&listaIdades);
+	//ListaIdades listaIdades;
+	//listaIdades.entradaDeDados();
+	//listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
