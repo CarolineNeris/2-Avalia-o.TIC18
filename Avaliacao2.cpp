@@ -43,6 +43,7 @@ public:
     virtual void mostraMenor() = 0;
     virtual void mostraMaior() = 0;
     virtual void listarEmOrdem() = 0;
+    virtual void mostrarNPrimeiros(int N) = 0;
 };
 
 class ListaNomes : public Lista {
@@ -62,7 +63,7 @@ public:
         }
     }
 
-    void mostraMediana() {
+    void mostraMediana() override {
         if (lista.empty()) {
             cout << "A lista de nomes esta vazia, nao eh possivel calcular a mediana." << endl;
         } else {
@@ -76,7 +77,7 @@ public:
         }
     }
 
-    void mostraMenor() {
+    void mostraMenor() override {
         if (lista.empty()) {
             cout << "A lista de nomes esta vazia, não eh possivel encontrar o menor nome." << endl;
         } else {
@@ -85,7 +86,7 @@ public:
         }
     }
 
-    void mostraMaior() {
+    void mostraMaior() override {
         if (lista.empty()) {
             cout << "A lista de nomes esta vazia, nao eh possivel encontrar o maior nome." << endl;
         } else {
@@ -97,6 +98,12 @@ public:
         sort(lista.begin(), lista.end());
         for (const string& nome : lista) {
             cout << nome << endl;
+        }
+    }
+    void mostrarNPrimeiros(int N) override {
+        cout << "Os primeiros " << N << " nomes:" << endl;
+        for (int i = 0; i < min(N, int(lista.size())); i++) {
+            cout << lista[i] << endl;
         }
     }
 };
@@ -120,7 +127,7 @@ class ListaDatas : public Lista  {
     }
 		
 	
-	void mostraMediana() {
+	void mostraMediana() override {
         if (lista.empty()) {
             cout << "A lista de datas esta vazia." << endl;
         } else {
@@ -132,7 +139,7 @@ class ListaDatas : public Lista  {
         }
     }
 	
-	   void mostraMenor() {
+	   void mostraMenor() override {
         if (lista.empty()) {
             cout << "A lista de datas esta vazia." << endl;
         } else {
@@ -143,7 +150,7 @@ class ListaDatas : public Lista  {
         }
     }
 
-    void mostraMaior() {
+    void mostraMaior() override {
         if (lista.empty()) {
             cout << "A lista de datas esta vazia." << endl;
         } else {
@@ -160,6 +167,12 @@ class ListaDatas : public Lista  {
         });
         for (const Data& data : lista) {
             cout << data.toString() << endl;
+        }
+    }
+    void mostrarNPrimeiros(int N) override {
+        cout << "As primeiras " << N << " datas:" << endl;
+        for (int i = 0; i < min(N, int(lista.size())); i++) {
+            cout << lista[i].toString() << endl;
         }
     }
     
@@ -183,7 +196,7 @@ class ListaSalarios : public Lista  {
     }
 	
 			
-	void mostraMediana() {
+	void mostraMediana() override {
         if (lista.empty()) {
             cout << "A lista de salarios esta vazia." << endl;
         } else {
@@ -198,7 +211,7 @@ class ListaSalarios : public Lista  {
         }
     }
 	
-	void mostraMenor() {
+	void mostraMenor() override {
         if (lista.empty()) {
             cout << "A lista de salários esta vazia." << endl;
         } else {
@@ -206,7 +219,7 @@ class ListaSalarios : public Lista  {
             cout << "Menor salario: " << lista.front() << endl;
         }
     }
-	void mostraMaior() {
+	void mostraMaior() override {
         if (lista.empty()) {
             cout << "A lista de salarios esta vazia." << endl;
         } else {
@@ -214,10 +227,16 @@ class ListaSalarios : public Lista  {
             cout << "Maior salario: " << lista.back() << endl;
         }
     }
-     void listarEmOrdem(){
+     void listarEmOrdem() override {
         sort(lista.begin(), lista.end());
         for (float salario : lista) {
             cout << salario << endl;
+        }
+    }
+    void mostrarNPrimeiros(int N) override {
+        cout << "Os primeiros " << N << " salários:" << endl;
+        for (int i = 0; i < min(N, int(lista.size())); i++) {
+            cout << lista[i] << endl;
         }
     }
 };
@@ -240,7 +259,7 @@ class ListaIdades : public Lista  {
     }
 	
 	
-void mostraMediana() {
+void mostraMediana() override {
         if (lista.empty()) {
             cout << "A lista de idades esta vazia." << endl;
         } else {
@@ -255,7 +274,7 @@ void mostraMediana() {
         }
     }
 	
-	void mostraMenor() {
+	void mostraMenor() override {
         if (lista.empty()) {
             cout << "A lista de idades esta vazia." << endl;
         } else {
@@ -263,7 +282,7 @@ void mostraMediana() {
             cout << "Menor idade: " << lista.front() << endl;
         }
     }
-	void mostraMaior() {
+	void mostraMaior() override {
         if (lista.empty()) {
             cout << "A lista de idades esta vazia." << endl;
         } else {
@@ -271,13 +290,18 @@ void mostraMediana() {
             cout << "Maior idade: " << lista.back() << endl;
         }
     }
-     void listarEmOrdem(){
+     void listarEmOrdem() override {
         sort(lista.begin(), lista.end());
         for (int idade : lista) {
             cout << idade << endl;
         }
     }
-
+    void mostrarNPrimeiros(int N) override {
+        cout << "As primeiras " << N << " idades:" << endl;
+        for (int i = 0; i < min(N, int(lista.size())); i++) {
+            cout << lista[i] << endl;
+        }
+    }
 };
 
 int main() {
@@ -305,6 +329,7 @@ int main() {
 		l->mostraMaior();
         cout << "Listagem em ordem:" << endl;
         l->listarEmOrdem();
+        l->mostrarNPrimeiros(2);
 	}
 
     return 0;
