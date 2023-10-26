@@ -14,10 +14,34 @@ class Data {
 	Retornar� +1 se d1 � posterior a d2
 	*/	
 	static int compara(Data d1, Data d2) { 
+		tm data1 ={};
+		data1.tm_year=d1.ano-1900;
+		data1.tm_mon=d1.mes-1;
+		data1.tm_mday=d1.dia;
+		mktime(&data1);
+		
+		tm data2 ={};
+		data2.tm_year=d2.ano-1900;
+		data2.tm_mon=d2.mes-1;
+		data2.tm_mday=d2.dia;
+		mktime(&data2);
+
+		if(difftime(mktime(&data1), mktime(&data2))>0){
+			return +1;
+		}else{	if(difftime(mktime(&data1), mktime(&data2))<0){
+					return -1;
+				}else{
+					return 0;
+				}
+
+		}
+	}
+	/*static int compara(Data d1, Data d2) { 
 		if(d1<d2){return -1;}
 		else if(!(d1<d2)){return 1;}
 		else{return 0;}
 	}
+	*/
 	bool operator<(const Data& _data) const {
 		if (ano < _data.ano) {
             //cout<<"ano<_data.ano"<<endl;
