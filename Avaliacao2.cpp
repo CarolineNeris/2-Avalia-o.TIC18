@@ -109,11 +109,11 @@ class ListaSalarios : public Lista  {
 	void entradaDeDados() override{
 		
 		int n;
-        cout << "Quantos salários deseja adicionar? ";
+        cout << "Quantos salarios deseja adicionar? ";
         cin >> n;
         for (int i = 0; i < n; i++) {
             float salario;
-            cout << "Digite o salário: ";
+            cout << "Digite o salario: ";
             cin >> salario;
             lista.push_back(salario);
         }
@@ -164,20 +164,21 @@ class ListaIdades : public Lista  {
 
 int main() {
     vector<Lista*> listaDeListas;
-    Data dataum(12, 9, 2013);
+   //teste
+   /* Data dataum(12, 9, 2013);
     Data datadois(15, 8, 2023);
-    cout << Data::compara(dataum, datadois) << endl;
+    cout << Data::compara(dataum, datadois) << endl;*/
 
     ListaNomes listaNomes;
     listaNomes.entradaDeDados();
     listaDeListas.push_back(&listaNomes);
 
     // Adicionar as outras classes derivadas e seus métodos.
-
+	
 
     /*ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
-	listaDeListas.push_back(&listaDatas);
+	listaDeListas.push_back(&listaDatas);*/
 	
 	ListaSalarios listaSalarios;
 	listaSalarios.entradaDeDados();
@@ -191,7 +192,7 @@ int main() {
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
-	}*/
+	}
 
     return 0;
 }
